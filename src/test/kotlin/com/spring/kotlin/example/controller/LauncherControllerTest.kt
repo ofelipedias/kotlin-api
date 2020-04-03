@@ -39,7 +39,7 @@ class LauncherControllerTest {
     private val employeeService: EmployeeService? = null
 
     // request data
-    private val baseUrl: String = "/api/launchers"
+    private val baseUrl: String = "/launchers"
 
     // employee data
     private val name: String = "employee1"
@@ -63,7 +63,7 @@ class LauncherControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
-                .andExpect(MockMvcResultMatchers.status().isOk)
+                .andExpect(MockMvcResultMatchers.status().isCreated)
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data").isNotEmpty)
                 .andExpect(MockMvcResultMatchers.jsonPath("$.errors").isEmpty)
     }
@@ -107,8 +107,7 @@ class LauncherControllerTest {
 
         mockMvc!!.perform(MockMvcRequestBuilders.delete("$baseUrl/$launcherId"))
                 .andDo(MockMvcResultHandlers.print())
-                .andExpect(MockMvcResultMatchers.status().isOk)
-                .andExpect(MockMvcResultMatchers.jsonPath("$.errors").isEmpty)
+                .andExpect(MockMvcResultMatchers.status().isNoContent)
     }
 
     private fun launcher(withId: Boolean): Launcher {
