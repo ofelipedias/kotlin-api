@@ -23,11 +23,17 @@ class WebSecurityConfig(val employeeUserDetailService: EmployeeUserDetailService
     }
 
     override fun configure(http: HttpSecurity) {
-        http.authorizeRequests().antMatchers("/api/register/*").permitAll()
-                .anyRequest().authenticated()
-                .and().httpBasic()
-                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        http.cors()
                 .and().csrf().disable()
+                .authorizeRequests()
+                .antMatchers(
+                        "/swagger-resources/**",
+                        "/swagger-ui**",
+                        "/v2/api-docs",
+                        "/webjars/**").permitAll()
+                .anyRequest().authenticated()
+                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and().httpBasic()
     }
 
     @Bean
@@ -40,5 +46,4 @@ class WebSecurityConfig(val employeeUserDetailService: EmployeeUserDetailService
 
     @Bean
     fun passwordEncoder(): PasswordEncoder = BCryptPasswordEncoder()
-
 }

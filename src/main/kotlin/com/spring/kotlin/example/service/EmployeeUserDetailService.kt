@@ -18,5 +18,4 @@ class EmployeeUserDetailService(val employeeService: EmployeeService) : UserDeta
         }
         throw UsernameNotFoundException(username)
     }
-
 }

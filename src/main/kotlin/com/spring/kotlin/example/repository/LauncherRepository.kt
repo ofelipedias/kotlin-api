@@ -8,5 +8,4 @@ import org.springframework.data.mongodb.repository.MongoRepository
 interface LauncherRepository : MongoRepository<Launcher, String> {
 
     fun findByEmployeeId(employeeId: String, pageable: Pageable): Page<Launcher>
-
 }

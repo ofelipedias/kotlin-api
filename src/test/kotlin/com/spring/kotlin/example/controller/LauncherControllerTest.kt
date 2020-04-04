@@ -117,5 +117,4 @@ class LauncherControllerTest {
 
     private fun employee(): Employee = Employee(name, email, PasswordUtils().passwordEncrypt(password), document,
             Profile.ROLE_USER, employeeId)
-
 }

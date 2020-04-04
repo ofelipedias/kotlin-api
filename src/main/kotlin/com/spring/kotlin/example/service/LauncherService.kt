@@ -27,5 +27,4 @@ class LauncherService(val launcherRepository: LauncherRepository,
         employeeService.findById(launcherDto.employeeId)
         if (!launcherDto.date!!.isValidDate(DateTimeFormatter.ISO_LOCAL_DATE_TIME)) throw ServiceException("Invalid date time format")
     }
-
 }

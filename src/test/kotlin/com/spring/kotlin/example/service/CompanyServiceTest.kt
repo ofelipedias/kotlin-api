@@ -45,5 +45,4 @@ internal class CompanyServiceTest() {
     }
 
     private fun company(): Company = Company(name, document, id)
-
 }

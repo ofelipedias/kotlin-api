@@ -17,5 +17,4 @@ class CompanyService(val companyRepository: CompanyRepository) {
     fun validate(cnpj: String) {
         if (findByDocument(cnpj) != null) throw ServiceException("Company already exists")
     }
-
 }

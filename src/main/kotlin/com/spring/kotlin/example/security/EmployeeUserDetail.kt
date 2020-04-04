@@ -24,5 +24,4 @@ class EmployeeUserDetail(val employee: Employee) : UserDetails {
     override fun isAccountNonExpired(): Boolean = true
 
     override fun isAccountNonLocked(): Boolean = true
-
 }

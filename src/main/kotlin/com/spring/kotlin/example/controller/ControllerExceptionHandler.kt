@@ -26,5 +26,4 @@ class ControllerExceptionHandler {
         response.errors.add(exception.message!!)
         return ResponseEntity.badRequest().body(response)
     }
-
 }
