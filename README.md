@@ -1,5 +1,4 @@
 # kotlin-api
-Exemplo de api rest em kotlin utilizando springboot e mongodb
 
 ### Criando e subindo os containers do mongo e mongo-express
 No diretório raiz do projeto execute o comando abaixo:
